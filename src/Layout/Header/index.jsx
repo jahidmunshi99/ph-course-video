@@ -2,7 +2,7 @@ import { useState } from "react";
 import { AiOutlineLogin } from "react-icons/ai";
 import brandLogo from "../../../src/assets/logo.png";
 
-const Header = () => {
+const Header = ({ onLogin }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   // Function to toggle the menu's state.
@@ -43,12 +43,14 @@ const Header = () => {
           >
             Contact
           </a>
-          <a
-            href="#"
+          <button
             className="bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300"
+            onClick={() => {
+              onLogin();
+            }}
           >
             <AiOutlineLogin />
-          </a>
+          </button>
         </nav>
 
         {/* Mobile Menu Toggle Button (Hamburger) */}
@@ -102,12 +104,14 @@ const Header = () => {
           >
             Contact
           </a>
-          <a
-            href="#"
+          <button
             className="block bg-blue-600 text-white px-4 py-2 rounded-lg text-center font-semibold hover:bg-blue-700 transition-colors duration-300 mt-2"
+            onClick={() => {
+              onLogin();
+            }}
           >
             Sign In
-          </a>
+          </button>
         </nav>
       </div>
     </header>

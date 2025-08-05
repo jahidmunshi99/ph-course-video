@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+import Login from "../LogIn";
 
 // The main App component which renders the header, hero section, and a footer.
-const Home = () => {
+const Home = ({ onLogin, showLogIn, onClose }) => {
   // State and phrases for the typing effect.
   const [typedText, setTypedText] = useState("");
   const phrases = [
@@ -51,24 +52,32 @@ const Home = () => {
   }, []); // Empty dependency array means this effect runs once on mount.
 
   return (
-    <main className="flex-grow flex flex-col items-center justify-center p-4 bg-gray-900 text-white min-h-screen">
-      <div className="text-center px-4 max-w-4xl w-[90%]">
-        {/* Typing text display */}
-        <h1 className="text-3xl sm:text-4xl md:text-5xl mb-10 min-h-[4rem] md:min-h-[5rem]">
-          {typedText}
-          {/* Blinking cursor */}
-          <span className="inline-block w-1.5 h-10 bg-white ml-2 animate-blink md:h-12"></span>
-        </h1>
+    <>
+      {showLogIn ? (
+        <Login onClose={onClose} />
+      ) : (
+        <main className="flex-grow flex flex-col items-center justify-center p-4 bg-gray-900 text-white min-h-screen">
+          <div className="text-center px-4 max-w-4xl w-[90%]">
+            {/* Typing text display */}
+            <h1 className="text-3xl sm:text-4xl md:text-5xl mb-10 min-h-[4rem] md:min-h-[5rem]">
+              {typedText}
+              {/* Blinking cursor */}
+              <span className="inline-block w-1.5 h-10 bg-white ml-2 animate-blink md:h-12"></span>
+            </h1>
 
-        {/* Sign In button */}
-        <a
-          href="#"
-          className="bg-blue-600 text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-blue-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
-        >
-          Sign In to Start
-        </a>
-      </div>
-    </main>
+            {/* Sign In button */}
+            <button
+              className="bg-blue-600 text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-blue-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
+              onClick={() => {
+                onLogin();
+              }}
+            >
+              Sign In to Start
+            </button>
+          </div>
+        </main>
+      )}
+    </>
   );
 };
 
