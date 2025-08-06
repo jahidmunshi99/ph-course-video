@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { AiOutlineLogin } from "react-icons/ai";
+import { IoMdClose } from "react-icons/io";
+import { IoMenu } from "react-icons/io5";
 import brandLogo from "../../../src/assets/logo.png";
 
 const Header = ({ onLogin }) => {
@@ -9,6 +11,12 @@ const Header = ({ onLogin }) => {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  const onClickLogin = () => {
+    setIsOpen(!isOpen);
+    onLogin();
+  };
+
   return (
     <header className="bg-gray-800 py-3 shadow-lg">
       <div className="mx-auto max-w-[95%] container flex items-center justify-between">
@@ -57,23 +65,10 @@ const Header = ({ onLogin }) => {
         {/* Only visible on screens smaller than 'md' breakpoint */}
         <button
           onClick={toggleMenu} // onClick event handler calls the toggleMenu function
-          className="md:hidden text-white focus:outline-none"
+          className="md:hidden text-white focus:outline-none text-3xl"
         >
           {/* SVG for the hamburger icon */}
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            ></path>
-          </svg>
+          {!isOpen ? <IoMenu /> : <IoMdClose />}
         </button>
       </div>
 
@@ -106,9 +101,7 @@ const Header = ({ onLogin }) => {
           </a>
           <button
             className="block bg-blue-600 text-white px-4 py-2 rounded-lg text-center font-semibold hover:bg-blue-700 transition-colors duration-300 mt-2"
-            onClick={() => {
-              onLogin();
-            }}
+            onClick={onClickLogin}
           >
             Sign In
           </button>
