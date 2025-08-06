@@ -2,7 +2,7 @@ import { Eye, EyeOff, X } from "lucide-react"; // Added 'X' icon
 import { useState } from "react";
 import brandLogo from "../../assets/logo.png";
 
-const Login = ({ onClose }) => {
+const LogInModal = ({ onClose }) => {
   // State for email and password input values
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -156,4 +156,4 @@ const Login = ({ onClose }) => {
   );
 };
 
-export default Login;
+export default LogInModal;

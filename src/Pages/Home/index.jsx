@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Login from "../LogIn";
+import LogInModal from "../LogInModal";
 
 // The main App component which renders the header, hero section, and a footer.
 const Home = ({ onLogin, showLogIn, onClose }) => {
@@ -54,7 +54,7 @@ const Home = ({ onLogin, showLogIn, onClose }) => {
   return (
     <>
       {showLogIn ? (
-        <Login onClose={onClose} />
+        <LogInModal onClose={onClose} />
       ) : (
         <main className="flex-grow flex flex-col items-center justify-center p-4 bg-gray-900 text-white min-h-screen">
           <div className="text-center px-4 max-w-4xl w-[90%]">
