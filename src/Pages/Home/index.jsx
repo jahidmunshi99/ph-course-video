@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import CourseVidoes from "../../courseVidoes";
 import LogInModal from "../LogInModal";
 
 // The main App component which renders the header, hero section, and a footer.
 const Home = ({ onLogin, showLogIn, onClose }) => {
   // State and phrases for the typing effect.
   const [typedText, setTypedText] = useState("");
+  const [showPlayList, setShowPlayList] = useState(false);
   const phrases = [
     "WellCome To Proghive Academy.",
     "Unlock your Course",
@@ -51,10 +53,16 @@ const Home = ({ onLogin, showLogIn, onClose }) => {
     return () => clearTimeout(typingTimeout);
   }, []); // Empty dependency array means this effect runs once on mount.
 
+  const handleCourseVideo = () => {
+    setShowPlayList(true);
+  };
+
   return (
     <>
+      {showPlayList && <CourseVidoes />}
+
       {showLogIn ? (
-        <LogInModal onClose={onClose} />
+        <LogInModal onClose={onClose} showCourseModal={handleCourseVideo} />
       ) : (
         <main className="flex-grow flex flex-col items-center justify-center p-4 bg-gray-900 text-white min-h-screen">
           <div className="text-center px-4 max-w-4xl w-[90%]">

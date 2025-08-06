@@ -2,7 +2,7 @@ import { Eye, EyeOff, X } from "lucide-react"; // Added 'X' icon
 import { useState } from "react";
 import brandLogo from "../../assets/logo.png";
 
-const LogInModal = ({ onClose }) => {
+const LogInModal = ({ onClose, showCourseModal }) => {
   // State for email and password input values
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,6 +21,7 @@ const LogInModal = ({ onClose }) => {
   const handleGoogleLogin = () => {
     console.log("Initiating Google login...");
     // In a real app, you would initiate the Google Auth flow here
+    showCourseModal();
   };
 
   return (

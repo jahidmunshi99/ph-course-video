@@ -3,7 +3,7 @@ import allVideo from "../data/index.js";
 import Player from "./Player/index.jsx";
 import VideoItem from "./VideoItem";
 
-const Board = () => {
+const CourseVidoes = () => {
   const videos = allVideo();
 
   const [playVideo, setPlayVideo] = useState({
@@ -41,4 +41,4 @@ const Board = () => {
   );
 };
 
-export default Board;
+export default CourseVidoes;
