@@ -1,6 +1,6 @@
 import { Eye, EyeOff, X } from "lucide-react"; // Added 'X' icon
 import { useState } from "react";
-import brandLogo from "../../../assets/logo.png";
+import brandLogo from "../../assets/logo.png";
 
 const Login = ({ onClose }) => {
   // State for email and password input values
