@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import CourseVidoes from "../../courseVidoes";
 import LogInModal from "../LogInModal";
 
 // The main App component which renders the header, hero section, and a footer.
-const Home = ({ onLogin, showLogIn, onClose }) => {
+const Home = () => {
   // State and phrases for the typing effect.
   const [typedText, setTypedText] = useState("");
   const [showPlayList, setShowPlayList] = useState(false);
+  const [showLogInModal, setShowLoginModal] = useState(false);
   const phrases = [
     "WellCome To Proghive Academy.",
     "Unlock your Course",
@@ -53,17 +53,22 @@ const Home = ({ onLogin, showLogIn, onClose }) => {
     return () => clearTimeout(typingTimeout);
   }, []); // Empty dependency array means this effect runs once on mount.
 
+  const handleLoginModal = () => {
+    setShowLoginModal(true);
+  };
+
   const handleCourseVideo = () => {
     setShowPlayList(true);
   };
 
+  const handleCloseModal = () => {
+    setShowLoginModal(false);
+  };
+
   return (
     <>
-      {showPlayList && <CourseVidoes />}
-
-      {showLogIn ? (
-        <LogInModal onClose={onClose} showCourseModal={handleCourseVideo} />
-      ) : (
+      <div>
+        {showLogInModal && <LogInModal onClose={handleCloseModal} />}
         <main className="flex-grow flex flex-col items-center justify-center p-4 bg-gray-900 text-white min-h-screen">
           <div className="text-center px-4 max-w-4xl w-[90%]">
             {/* Typing text display */}
@@ -76,15 +81,13 @@ const Home = ({ onLogin, showLogIn, onClose }) => {
             {/* Sign In button */}
             <button
               className="bg-blue-600 text-white px-10 py-4 rounded-full font-semibold text-lg hover:bg-blue-700 transition-colors duration-300 shadow-lg hover:shadow-xl"
-              onClick={() => {
-                onLogin();
-              }}
+              onClick={handleLoginModal}
             >
               Sign In to Start
             </button>
           </div>
         </main>
-      )}
+      </div>
     </>
   );
 };

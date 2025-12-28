@@ -1,0 +1,109 @@
+{
+  "users": [
+    {
+      "id": "user_01",
+      "first_name": "Jahid",
+      "last_name": "Munshi",
+      "display_name": "Jahid Munshi",
+      "email": "proghive@proghive.com",
+      "phone": "01777777777",
+      "address": {
+        "village": "Townkalikaput",
+        "post": "Patuakhali",
+        "upozila": "Patuakhali Sadar",
+        "district": "Patuakhali"
+      },
+      "social_links": {
+        "facebook": "https://facebook.com/jahidptk1"
+      },
+      "enrollments": [
+        {
+          "course_id": "course_01",
+          "batch_id": "batch_04"
+        }
+      ]
+    }
+  ],
+
+  "courses": [
+    {
+      "id": "course_01",
+      "name": "Book Formatting",
+      "description": "Learn professional book formatting",
+      "is_active": true
+    }
+  ],
+
+  "batches": [
+    {
+      "id": "batch_04",
+      "course_id": "course_01",
+      "start_date": "2025-01-01",
+      "end_date": "2025-03-01"
+    }
+  ],
+
+  "videos": [
+    {
+      "id": "video_01",
+      "course_id": "course_01",
+      "batch_id": "batch_04",
+      "title": "How to Start Book Formatting",
+      "description": "Introduction to book formatting using MS Word",
+      "video_url": "https://youtube.com/xxxxx",
+      "duration": 900,
+      "order": 1,
+      "is_published": true,
+      "created_at": "2025-02-10T10:30:00Z"
+    }
+  ],
+
+  "course_videos": [
+    {
+      "course_name": "book formatting",
+      "batch_no": "01",
+      "videos_list": [
+        {
+          "id": "01",
+          "title": "How to Start Book formatting",
+          "description": "how to start book formatting using microsoft office word",
+          "url": "www.youtube.com/book_formatting",
+          "is_played": true,
+          "is_published": true,
+          "created_at": "10/02/2025"
+        },
+        {
+          "id": "02",
+          "title": "How to Start Book formatting",
+          "description": "how to start book formatting using microsoft office word",
+          "url": "www.youtube.com/book_formatting",
+          "is_played": true,
+          "is_published": true,
+          "created_at": "10/02/2025"
+        },
+        {
+          "id": "03",
+          "title": "How to Start Book formatting",
+          "description": "how to start book formatting using microsoft office word",
+          "url": "www.youtube.com/book_formatting",
+          "is_played": true,
+          "is_published": true,
+          "created_at": "10/02/2025"
+        }
+      ]
+    }
+  ],
+
+  "user_video_progress": [
+    {
+      "user_id": "user_01",
+      "video_id": "video_01",
+      "is_completed": true,
+      "watched_duration": 900,
+      "last_watched_at": "2025-02-12T08:20:00Z"
+    }
+  ],
+
+  "is_free": false,
+  "required_role": "student"
+}

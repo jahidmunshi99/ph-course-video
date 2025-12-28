@@ -25,9 +25,8 @@ const LogInModal = ({ onClose, showCourseModal }) => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-900 font-sans p-4">
-      {/* Login Card Container */}
-      <div className="relative w-full max-w-md bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700">
+    <div className="fixed inset-0 flex items-center justify-center z-50 bg-gray-900/90">
+      <div className="w-full max-w-md bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-700 relative">
         {/* Close Button */}
         <button
           onClick={() => {

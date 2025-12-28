@@ -3,9 +3,19 @@ import { AiOutlineLogin } from "react-icons/ai";
 import { IoMdClose } from "react-icons/io";
 import { IoMenu } from "react-icons/io5";
 import brandLogo from "../../../src/assets/logo.png";
+import LogInModal from "../../Pages/LogInModal";
 
-const Header = ({ onLogin }) => {
+const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showLogInModal, setShowLoginModal] = useState(false);
+
+  const handleLoginForm = () => {
+    setShowLoginModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowLoginModal(false);
+  };
 
   // Function to toggle the menu's state.
   const toggleMenu = () => {
@@ -14,7 +24,6 @@ const Header = ({ onLogin }) => {
 
   const onClickLogin = () => {
     setIsOpen(!isOpen);
-    onLogin();
   };
 
   return (
@@ -52,10 +61,8 @@ const Header = ({ onLogin }) => {
             Contact
           </a>
           <button
-            className="bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300"
-            onClick={() => {
-              onLogin();
-            }}
+            className="cursor-pointer bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300"
+            onClick={handleLoginForm}
           >
             <AiOutlineLogin />
           </button>
@@ -107,6 +114,7 @@ const Header = ({ onLogin }) => {
           </button>
         </nav>
       </div>
+      {showLogInModal && <LogInModal onClose={handleCloseModal} />}
     </header>
   );
 };
