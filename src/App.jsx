@@ -1,13 +1,13 @@
+import { Outlet } from "react-router";
 import { Footer } from "./Layout/Footer";
 import Header from "./Layout/Header";
-import Home from "./Pages/Home";
+import AllRoutes from "./Router";
 
 function App() {
   return (
     <>
       <Header />
-      {/* <Board /> */}
-      <Home />
+        <AllRoutes/>
       <Footer />
     </>
   );

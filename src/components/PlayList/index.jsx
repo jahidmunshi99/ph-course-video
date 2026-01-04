@@ -1,4 +1,4 @@
-const VideoItem = ({ OnPlayVideo, videos }) => {
+const PlayList = ({ OnPlayVideo, videos }) => {
   return (
     <ul className="space-y-2 text-sm">
       {videos.map((item) => (
@@ -16,4 +16,4 @@ const VideoItem = ({ OnPlayVideo, videos }) => {
   );
 };
 
-export default VideoItem;
+export default PlayList;

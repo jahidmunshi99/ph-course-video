@@ -1,10 +1,10 @@
 import { useState } from "react";
-import allVideo from "../data/index.js";
-import Player from "./Player/index.jsx";
-import VideoItem from "./VideoItem";
+import videoList from "../../data/index.js";
+import Player from "../../components/Player/index.jsx";
+import PlayList from "../../components/PlayList/index.jsx";
 
-const CourseVidoes = () => {
-  const videos = allVideo();
+const Dashboard = () => {
+  const videos = videoList();
 
   const [playVideo, setPlayVideo] = useState({
     link: "https://www.youtube.com/embed/dQw4w9WgXcQ",
@@ -33,7 +33,7 @@ const CourseVidoes = () => {
             </span>
           </div>
           <div className="space-y-2 text-sm pr-1 max-h-[50vh] md:max-h-full overflow-scroll">
-            <VideoItem OnPlayVideo={handlePlayVideo} videos={videos} />
+            <PlayList OnPlayVideo={handlePlayVideo} videos={videos} />
           </div>
         </div>
       </div>
@@ -41,4 +41,4 @@ const CourseVidoes = () => {
   );
 };
 
-export default CourseVidoes;
+export default Dashboard;
