@@ -1,8 +1,10 @@
 import { Eye, EyeOff, X } from "lucide-react"; // Added 'X' icon
 import { useState } from "react";
 import brandLogo from "../../assets/logo.png";
+import { AuthUse } from "../../Provider/AuthProvider";
 
 const LogInModal = ({ onClose, showCourseModal }) => {
+  const {loginWithGoogle, logInWithEmail} = AuthUse();
   // State for email and password input values
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -13,12 +15,14 @@ const LogInModal = ({ onClose, showCourseModal }) => {
   // A dummy function for the login action
   const handleLogin = (e) => {
     e.preventDefault();
+    logInWithEmail(email, password)
     console.log("Logging in with:", { email, password });
     // In a real app, you would make an API call here
   };
 
   // A dummy function for the Google login action
   const handleGoogleLogin = () => {
+    loginWithGoogle()
     console.log("Initiating Google login...");
     // In a real app, you would initiate the Google Auth flow here
     showCourseModal();
