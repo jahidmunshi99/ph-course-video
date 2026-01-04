@@ -8,7 +8,7 @@ const Home = () => {
   const [showPlayList, setShowPlayList] = useState(false);
   const [showLogInModal, setShowLoginModal] = useState(false);
   const phrases = [
-    "WellCome To Proghive Academy.",
+    "Wellcome to Proghive Academy.",
     "Unlock your Course",
     "Become a Professional Book Layout Designer.",
   ];
