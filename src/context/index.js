@@ -1,6 +1,6 @@
 import { createContext } from "react";
 
-const videoContext = createContext(null);
-const authContext = createContext(null)
+const VideoContext = createContext(null);
+const AuthContext = createContext(null)
 
-export { videoContext, authContext };
+export { VideoContext, AuthContext };

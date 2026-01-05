@@ -1,10 +1,12 @@
 import { Eye, EyeOff, X } from "lucide-react"; // Added 'X' icon
 import { useState } from "react";
 import brandLogo from "../../assets/logo.png";
-import { AuthUse } from "../../Provider/AuthProvider";
+import { UseAuth } from "../../Provider/AuthProvider";
 
-const LogInModal = ({ onClose, showCourseModal }) => {
-  const {loginWithGoogle, logInWithEmail} = AuthUse();
+
+
+const LogInModal = ({ onClose}) => {
+    const { logInWithEmail, loginWithGoogle} = UseAuth();
   // State for email and password input values
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,9 +25,8 @@ const LogInModal = ({ onClose, showCourseModal }) => {
   // A dummy function for the Google login action
   const handleGoogleLogin = () => {
     loginWithGoogle()
-    console.log("Initiating Google login...");
     // In a real app, you would initiate the Google Auth flow here
-    showCourseModal();
+    // showCourseModal();
   };
 
   return (
@@ -49,7 +50,7 @@ const LogInModal = ({ onClose, showCourseModal }) => {
         />
 
         {/* Login Form */}
-        <form onSubmit={handleLogin} className="space-y-6">
+        <form className="space-y-6">
           {/* Email Input Field */}
           <div>
             <label
@@ -110,8 +111,9 @@ const LogInModal = ({ onClose, showCourseModal }) => {
 
           {/* Login Button */}
           <button
-            type="submit"
+            type="button"
             className="w-full py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-800 transition duration-200"
+          onClick={handleLogin}
           >
             Log In
           </button>

@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import {useNavigate} from "react-router";
-import {authContext} from "../context/index"
-
+import {AuthContext} from "../context/index"
 import { signinWithEmail, signInWithGoogle } from "../Authentication";
 
 export const AuthProvider = ({children}) => {
@@ -10,9 +9,9 @@ export const AuthProvider = ({children}) => {
 
   const logInWithEmail = async (email, password)=>{
 try {
-      const result = await signinWithEmail(email, password);
-    if(result.user){
-      setUser(result.user)
+      const loggedUser = await signinWithEmail(email, password);
+    if(loggedUser){
+      setUser(loggedUser)
       navigate("/dashboard")
     }else{
       setUser(null)
@@ -25,9 +24,9 @@ try {
 
   const loginWithGoogle = async()=>{
 try {
-  const result = await signInWithGoogle()
-      if(result.user){
-      setUser(result.user)
+  const loggedUser = await signInWithGoogle()
+      if(loggedUser){
+      setUser(loggedUser)
       navigate("/dashboard")
     }else{
       setUser(null)
@@ -39,8 +38,8 @@ try {
   }
 
   return (
-    <authContext.Provider value={{logInWithEmail, loginWithGoogle, user}}>{children}</authContext.Provider>
+    <AuthContext.Provider value={{logInWithEmail, loginWithGoogle, user}}>{children}</AuthContext.Provider>
   )
 }
 
-export const AuthUse = ()=> useContext(authContext);
+export const UseAuth = () => useContext(AuthContext);
