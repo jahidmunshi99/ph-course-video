@@ -12,7 +12,7 @@ const Player = ({ onPlay }) => {
         <iframe
           key={onPlay.id}
           className="w-full h-full rounded"
-          src={onPlay.link}
+          src={onPlay.video_url}
           title={onPlay.title}
           allowFullScreen
         ></iframe>

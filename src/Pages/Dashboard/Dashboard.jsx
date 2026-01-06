@@ -1,16 +1,18 @@
 import { useState } from "react";
-import videoList from "../../data/index.js";
+// import videoList from "../../data/index.js";
 import Player from "../../components/Player/index.jsx";
 import PlayList from "../../components/PlayList/index.jsx";
+import { UseAuth } from "../../Provider/AuthProvider.jsx";
 
 const Dashboard = () => {
-  const videos = videoList();
+  // const videos = videoList();
+  const {videos} = UseAuth();
 
   const [playVideo, setPlayVideo] = useState({
     link: "https://www.youtube.com/embed/dQw4w9WgXcQ",
   });
 
-  console.log(playVideo);
+
 
   const handlePlayVideo = (videoItem) => {
     setPlayVideo(videoItem);
