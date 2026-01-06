@@ -1,4 +1,5 @@
 const PlayList = ({ OnPlayVideo, videos }) => {
+  console.log(videos)
   return (
     <ul className="space-y-2 text-sm">
       {videos.map((item) => (
