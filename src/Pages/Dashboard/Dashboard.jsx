@@ -9,7 +9,7 @@ const Dashboard = () => {
   const {videos} = UseAuth();
 
   const [playVideo, setPlayVideo] = useState({
-    link: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    video_url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
   });
 
 
