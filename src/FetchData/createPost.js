@@ -1,14 +1,10 @@
 import {db} from "../Firebase/firebase-config"
 import { collection, addDoc } from "firebase/firestore"; 
 
-const CreatePost = async ()=>{
+const CreateVideo = async (item)=>{
     try {
-    const docRef = await addDoc(collection(db, "users"), {
-        first: "Ada",
-        last: "Lovelace",
-        born: 1815
-    });
-    console.log("Document written with ID: ", docRef.id);
+    const docRef = await addDoc(collection(db, "users"), item);
+    return docRef
     } catch (e) {
     console.error("Error adding document: ", e);
     }
@@ -27,4 +23,4 @@ const CreateUser = async ()=>{
     }
 }
 
-export {CreatePost, CreateUser}
+export {CreateVideo, CreateUser}

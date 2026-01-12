@@ -1,24 +1,13 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import {useNavigate} from "react-router";
 import {AuthContext} from "../context/index"
 import { signinWithEmail, signInWithGoogle } from "../Authentication";
-import { getVideos } from "../FetchData/getPosts";
+
 
 export const AuthProvider = ({children}) => {
   const navigate = useNavigate()
   const [user, setUser] = useState(null)
-  const [videos, setVideos] = useState()
 
-  console.log(videos)
-
-  {/* Fetch Data*/}
-  useEffect(()=>{
-    const request = async ()=>{
-      const data = await getVideos();
-      setVideos(data);
-    }
-    request();
-  },[])
 
 
   
@@ -52,7 +41,7 @@ export const AuthProvider = ({children}) => {
   }
 
   return (
-    <AuthContext.Provider value={{logInWithEmail, loginWithGoogle, user, videos}}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{logInWithEmail, loginWithGoogle, user}}>{children}</AuthContext.Provider>
   )
 }
 
